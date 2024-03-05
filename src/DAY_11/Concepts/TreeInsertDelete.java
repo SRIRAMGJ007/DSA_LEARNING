@@ -1,11 +1,11 @@
-package DAY_9.Concepts;
+package DAY_11.Concepts;
 
-import DAY_9.Problems.TreeNode;
-import com.sun.source.tree.Tree;
+import DAY_11.Problems.TreeNode;
 
+import java.util.ArrayDeque;
 import java.util.HashMap;
 
-public class TreeMethods {
+public class TreeInsertDelete {
     static int[] arr = {1,2,3,4,5,6,7};
 
     static void printOneTreeNode(TreeNode temp){
@@ -95,7 +95,7 @@ public class TreeMethods {
     public static TreeNode CreateNodeHashMap(){
         // TIME : O(N)
         // SPACE: O(N)
-        HashMap<Integer,TreeNode> hm = new HashMap<Integer,TreeNode>();
+        HashMap<Integer, TreeNode> hm = new HashMap<Integer, TreeNode>();
 
         if(arr.length == 0)
             return null;
@@ -115,14 +115,48 @@ public class TreeMethods {
         return hm.get(0);
     }
 
+    public static TreeNode FindTreeNode(int target,TreeNode node){
+        // find the tree node which has the given target value
+        if(node == null)
+            return null;
+
+        if(node.data == target)
+            return node;
+
+        TreeNode left_side = FindTreeNode(target,node.left);
+        if(left_side !=  null)
+            return left_side;
+
+        TreeNode right_side = FindTreeNode(target,node.right);
+        if(right_side != null)
+            return right_side;
+
+        return null;
+    }
+
+    public static TreeNode FindLastChildrenNode(TreeNode node){
+        // find the last children node to swap and delete
+
+        return null;
+    }
+
+    public static boolean RemoveTargetNode(){
+        // remove the target node from tree
+        return true;
+    }
+
+    public static boolean DeleteData(TreeNode head,int target){
+
+        return true;
+    }
 
 
     public static void main(String[] args){
 //        Approaches:
 //        1) static generate each node and connect
 //        1) Create a Tree
-//        input: [1 , 2 , 3, 4, 5, 6, 7,null,null,null,15]
-//        index: [0,  1 , 2, 3, 4, 5, 6, 7,   8,  9,   10]
+//        input: [1,2,3,4,5,6,7]
+//        index: [0,  1 , 2, 3, 4, 5, 6]
 //                    1
 //                 /     \
 //               2        3
@@ -156,6 +190,13 @@ public class TreeMethods {
         //Iterative approach - use our collection stack as ds
         System.out.println("IN ORDER");
         printTreeNodeChainIterativePreorder(head);
+
+        //Iterative approach - use our collection stack as ds
+        System.out.println("FINDING NODE IN BINARY TREE");
+        TreeNode node = FindTreeNode(3,head);
+        if(node!= null)
+            printOneTreeNode(node);
+
 //        System.out.println("PRE ORDER");
 //        printTreeNodeChainPreorder(head);
 //        System.out.println("POST ORDER");

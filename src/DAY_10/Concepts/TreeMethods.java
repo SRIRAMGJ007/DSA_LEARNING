@@ -1,8 +1,8 @@
-package DAY_9.Concepts;
+package DAY_10.Concepts;
 
-import DAY_9.Problems.TreeNode;
-import com.sun.source.tree.Tree;
+import DAY_10.Problems.TreeNode;
 
+import java.util.ArrayDeque;
 import java.util.HashMap;
 
 public class TreeMethods {
@@ -95,7 +95,7 @@ public class TreeMethods {
     public static TreeNode CreateNodeHashMap(){
         // TIME : O(N)
         // SPACE: O(N)
-        HashMap<Integer,TreeNode> hm = new HashMap<Integer,TreeNode>();
+        HashMap<Integer, TreeNode> hm = new HashMap<Integer, TreeNode>();
 
         if(arr.length == 0)
             return null;
